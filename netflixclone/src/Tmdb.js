@@ -13,7 +13,11 @@ const API_BASE = 'https://api.themoviedb.org/3';
 */
 
 const basicFetch = async (endpoint) => {
+
+    //Requisição de uma fonte externa, esperando resposta.
     const req = await fetch('$(API_BASE)$(endpoint)');
+
+    //Quando receber a resposta ele vem para esta linha.
     const json = await req.json();
     return json;
 }
@@ -24,7 +28,7 @@ export default {
         {
              slug: 'originals',
              title: 'Originais da Netflix',
-             items: await basicFetch('/discover/tv?with_network=213'),
+             items: await basicFetch('/discover/tv?with_network=213&language=pt-BRapi_key=${API_KEY}'),
         },
 
         {
